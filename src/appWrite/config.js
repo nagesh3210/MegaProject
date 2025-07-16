@@ -94,7 +94,7 @@ export class Service {
     }
   }
 
-  async updateFile() {
+  async uploadeFile() {
     try {
       await this.bucket.createFile(conf.appWriteBucketId, ID.unique(), file);
     } catch (error) {
