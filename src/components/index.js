@@ -8,4 +8,13 @@ import Button from './Button'
 import LogoutBtn from './Header/LogoutBtn'
 
 
-
+export {
+    Login,
+    Logo,
+    Container,
+    Footer,
+    Header,
+    Button,
+    LogoutBtn,
+    Select
+}
