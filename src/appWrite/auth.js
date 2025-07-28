@@ -9,8 +9,8 @@ export class AppWriteAuth {
 
     constructor() {
         this.client.
-            setEndpoint(conf.appWriteUrl).
-            setProject(conf.appWriteProjectId);
+            setEndpoint(conf.appwriteUrl).
+            setProject(conf.appwriteProjectId);
 
         this.account = new Account(this.client)
     }

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { Container , PostForm } from '../index.js'
 import appWriteService from '../../appWrite/config.js'
 import { useNavigate, useParams } from 'react-router-dom'
-import { set } from 'react-hook-form';
 
 
 function EditPost()
@@ -39,4 +38,6 @@ function EditPost()
 
 
 }
+
+export default EditPost;
 

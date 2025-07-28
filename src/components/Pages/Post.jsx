@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import appWriteService from "../../appWrite/config";
-import { useNavigate } from "react-router-dom";
-import { Container } from "../index.js";
+import { Button, Container } from "../../components/index.js";
+import parse from "html-react-parser";
+import { useSelector } from "react-redux";
 
-export default function Post() {
+ function Post() {
   const [post, setPost] = useState("");
   const navigate = useNavigate();
   const isAuthor = post && userData ? post.userId === userData.$id : false;
@@ -57,3 +59,4 @@ export default function Post() {
     </div>
   ) : null;
 }
+export default Post;

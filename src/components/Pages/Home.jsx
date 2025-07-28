@@ -1,29 +1,21 @@
 import React from 'react'
-
-import Home from '../index.js'
 import { useState , useEffect } from 'react';
-import appWriteService from '../../appWrite/config.js'
+import appwriteService from '../../appWrite/config.js'
 import { Container,PostCard } from '../index.js';
-
-
 
 function Home()
 {
+    const [posts, setPosts] = useState([])
 
-    const [posts ,setPosts] = useEffect([])
-
-
-    useEffect (()=>{
-
-        appWriteService.getPosts().then((post)=>{
-        if(posts){
-            setPosts(post.documents)
-        }
-    })
-    },
-    [])
-
- if (posts.length === 0) {
+    useEffect(() => {
+        appwriteService.getPosts().then((posts) => {
+            if (posts) {
+                setPosts(posts.documents)
+            }
+        })
+    }, [])
+  
+    if (posts.length === 0) {
         return (
             <div className="w-full py-8 mt-4 text-center">
                 <Container>
@@ -38,17 +30,19 @@ function Home()
             </div>
         )
     }
-
-
- return (
-       <div>
-        <Container>
-            <div>
-            {posts.map((post)=> (<div key={posts.$id}> <PostCard {...posts}/> </div>)  )}
-            </div>
-        </Container>
-       </div>
-    )}
-
+    return (
+        <div className='w-full py-8'>
+            <Container>
+                <div className='flex flex-wrap'>
+                    {posts.map((post) => (
+                        <div key={post.$id} className='p-2 w-1/4'>
+                            <PostCard {...post} />
+                        </div>
+                    ))}
+                </div>
+            </Container>
+        </div>
+    )
+}
 
 export default Home
